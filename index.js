@@ -60,9 +60,9 @@ Your function should add the flavor to the front of the array and console.log th
 
 For example addFlavor("Rainbow Sherbert", originalFlavors) should return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"] */ 
 
-function addFlavor(array, flavor){
-    array.unshift(flavor);
-    console.log(array);
+function addFlavor(arr, flavor){
+    arr.unshift(flavor);
+    console.log(arr);
 }
 addFlavor(originalFlavors, 'Rainbow Sherbert');
 
@@ -110,12 +110,12 @@ Hint: You can use .splice() for this
 
 */
 
-function removeFlavorByName(/*code here*/){
-
-    /*code here*/
-
+function removeFlavorByName(arr, flavor){
+    indexFlavor = [flavor]
+    arr.splice(-1, 1);
+    console.log(arr);
 }
-
+removeFlavorByName(originalFlavors, "Vanilla");
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
 
@@ -125,11 +125,12 @@ Your function should accept:
 
 and should return a new array that is identical to the old array. You can name the new array however you'd like. */
 
-function copy(/*code here*/){
-
-    /*code here*/
-
+function copy(arr){
+    const copiedFlavors = [...arr];
+    console.log(copiedFlavors);
+    
 }
+copy(originalFlavors);
 
 /* Task 7: July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. Write a function that checks every item in the array for a given string and returns a new array called filteredArray with just these values. Rather than hardcoding "chocolate" into your function, pass a string as a parameter, and invoke with the argument "chocolate". This way you could also filter for "Vanilla", "Sherbert", etc. when those holidays roll around.
 
@@ -146,12 +147,17 @@ DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem.
 
 hint - you can use the .includes method to help you solve this */
 
-function filterByWord(/*code here*/){
-
-    /*code here*/
-
+function filterByWord(arr, flavor){
+    let newArr =[]
+    for(i = 0; i< arr.length; i++){
+        if(arr[i].includes(flavor)){
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr
 }
 
+console.log(filterByWord(originalFlavors, "Chocolate"));
 
 
 /* 🧁🍦🍨 STRETCH 🍨🍦🍫*/ 
