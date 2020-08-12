@@ -111,8 +111,13 @@ Hint: You can use .splice() for this
 */
 
 function removeFlavorByName(arr, flavor){
-    indexFlavor = [flavor]
-    arr.splice(-1, 1);
+    let count = 0
+    for(i=0; i < arr.length; i++){
+        if(arr[i] === flavor){
+            count = i;
+        }
+    }
+    arr.splice(count, 1);
     console.log(arr);
 }
 removeFlavorByName(originalFlavors, "Vanilla");
@@ -148,7 +153,7 @@ DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem.
 hint - you can use the .includes method to help you solve this */
 
 function filterByWord(arr, flavor){
-    let newArr =[]
+    let newArr = []
     for(i = 0; i< arr.length; i++){
         if(arr[i].includes(flavor)){
             newArr.push(arr[i]);
